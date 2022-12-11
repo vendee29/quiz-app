@@ -6,7 +6,30 @@ fetchQuestions('/api/questions');
 
 // render form for adding a new question
 
+let form = document.querySelector('form');
+let message = document.querySelector('.message');
 
+
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    let correctAnswer = document.querySelector('input[name="is_correct"]:checked').value;
+    let answers = [form.answer_1.value, form.answer_2.value, form.answer_3.value, form.answer_4.value]
+    let finalAnswers = getAnswers(answers, correctAnswer);
+
+    let values = {
+        question: form.question.value,
+        answers: finalAnswers
+    }
+
+    fetchQuestion(values)
+    .then(data => {
+        message.innerText = `Your question has been submitted with the id ${data[0].question_id}.`;
+        clearForm();
+    })
+    .catch(err => console.log(err));
+
+})
 
 // HELPER FUNCTIONS
 

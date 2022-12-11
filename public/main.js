@@ -1,5 +1,38 @@
 'use strict';
 
+setCurrentScore();
+
+fetchRandomQuestion()
+.then(question => {
+    renderQuestion();
+    let mainQuestion = document.querySelector('.question h3');
+    let answers = document.querySelectorAll('.answers button');
+
+    mainQuestion.textContent = question.question;
+
+    for(let i = 0; i < answers.length; i++) {
+        answers[i].textContent = question.answers[i].answer;
+
+        answers[i].addEventListener('click', (event) => {
+            event.preventDefault();
+
+            clearInterval(myTimer);
+
+            if(question.answers[i].is_correct == 1) {
+                answers[i].setAttribute('style', 'background-color: #27AE60');
+                changeScore(1);
+                waitForReload(2000);
+            } else {
+                answers[i].setAttribute('style', 'background-color: #E86370');
+                waitForCorrectAnswer(1000, question.answers, answers);
+                changeScore(-1);
+                waitForReload(2000);
+            }
+        })
+    }
+})
+.catch(err => console.log(err));
+
 // HELPER FUNCTIONS
 
 // QUESTION

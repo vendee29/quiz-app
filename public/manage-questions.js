@@ -1,6 +1,10 @@
 'use strict';
 
+fetchQuestions('/api/questions');
+
 // HELPER FUNCTIONS
+
+//create question
 
 function createQuestion() {
     let divForQuestions = document.querySelector('.questions');
@@ -19,6 +23,8 @@ function createQuestion() {
     divForQuestions.appendChild(divForOne);
 };
 
+// delete question
+
 async function fetchDelete(api) {
     let response = await fetch(api, {
         method: 'DELETE',
@@ -27,4 +33,36 @@ async function fetchDelete(api) {
         }
     })
     return response.json();
+};
+
+// fetch questions
+
+async function fetchQuestions(api) {
+
+    try {
+    
+        let response = await fetch(api);
+        let questions = await response.json();
+
+        for(let i = 0; i < questions.length; i++) {
+            createQuestion()
+            let questionsPar = document.querySelectorAll('.questions p');
+            questionsPar[i].innerText = questions[i].question;
+
+            //////////////////// DELETING QUESTIONS ///////////////////
+
+            let deleteBtns = document.querySelectorAll('.delete');
+
+            deleteBtns[i].addEventListener('click', (event) => {
+                event.preventDefault();
+                console.log(`You want to delete question: ${questions[i].question}`);
+                fetchDelete(`/api/questions/${questions[i].id}`)
+                .then(message => {
+                    alert(message.message);
+                    location.reload();
+                });
+            })
+        }
+    } catch (err) {
+        console.log(err)}
 }

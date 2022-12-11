@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <script defer src="main.js"></script>
+    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rasa:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <button class="reset">Reset score</button>
+    <button class="clear-time">Stop timer</button>
+    <main>
+        <div class="score">
+            <span class="score-heading">SCORE: </span>
+            <span class="score-count">0</span>
+        </div>
+        <div class="timer">
+            <span class="timer-heading">Remaining time: </span>
+            <span class="timer-count">10</span>
+        </div>
+        <section class="question"></section>
+        <a href="http://localhost:8080/questions">Manage questions</a>
+    </main>
+</body>
+</html>

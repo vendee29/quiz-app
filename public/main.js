@@ -33,6 +33,28 @@ fetchRandomQuestion()
 })
 .catch(err => console.log(err));
 
+// Timer
+
+let myTimer = setInterval(timerHandler, 1000);
+
+let stopTimer = document.querySelector('.clear-time');
+
+stopTimer.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    if(stopTimer.textContent == 'Stop timer') {
+        stopTimer.innerText = 'Reset timer'
+        clearInterval(myTimer);
+        console.log('change to Reset timer')
+        
+    } else {
+        console.log('change to Stop timer')
+        stopTimer.textContent = 'Stop timer';
+        setInterval(timerHandler, 1000);
+        myTimer;
+    }
+})
+
 // HELPER FUNCTIONS
 
 // QUESTION

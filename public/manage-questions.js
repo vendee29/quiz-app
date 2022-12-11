@@ -17,4 +17,14 @@ function createQuestion() {
     divForOne.appendChild(p);
     divForOne.appendChild(button);
     divForQuestions.appendChild(divForOne);
+};
+
+async function fetchDelete(api) {
+    let response = await fetch(api, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    return response.json();
 }

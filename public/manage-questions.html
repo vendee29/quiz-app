@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage questions</title>
+    <script defer src="manage-questions.js"></script>
+    <link rel="stylesheet" href="manage-questions.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rasa:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main>
+        <section class="manage-questions">
+            <h1>Manage questions</h1>
+            <div class="questions"></div>
+        </section>
+        <section class="create-question">
+            <h1>Create a new question</h1>
+            <form>
+                <div class="message"></div>
+                <label for="question"></label>
+                <input type="text" id="question" name="question" placeholder="Type your question here" required>
+
+                <h3>Answers</h3>
+
+                <div class="answer">
+                    <label for="answer_1">#1</label>
+                    <input type="text" id="answer_1" name="answer_1" placeholder="Type your answer here" required>
+            
+                    <label for="answer_1_is_correct"></label>
+                    <input type="radio" id="answer_1_is_correct" name="is_correct" value="1" checked="true">
+                </div>
+
+                <div class="answer">
+                    <label for="answer_2">#2</label>
+                    <input type="text" id="answer_2" name="answer_2" placeholder="Type your answer here" required>
+
+                    <label for="answer_2_is_correct"></label>
+                    <input type="radio" id="answer_2_is_correct" name="is_correct" value="2">
+                </div>
+
+                <div class="answer">
+                    <label for="answer_3">#3</label>
+                    <input type="text" id="answer_3" name="answer_3" placeholder="Type your answer here" required>
+
+                    <label for="answer_3_is_correct"></label>
+                    <input type="radio" id="answer_3_is_correct" name="is_correct" value="3">
+                </div>
+
+                <div class="answer">
+                    <label for="answer_4">#4</label>
+                    <input type="text" id="answer_4" name="answer_4" placeholder="Type your answer here" required>
+
+                    <label for="answer_4_is_correct"></label>
+                    <input type="radio" id="answer_4_is_correct" name="is_correct" value="4">
+                </div>
+
+                <button type="submit">SUBMIT</button>
+            </form>
+        </section>
+        <a href="http://localhost:8080/game">Go back to the game</a>
+    </main>
+</body>
+</html>

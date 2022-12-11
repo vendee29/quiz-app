@@ -1,0 +1,102 @@
+body {
+    background-color: #ECF0F1;
+    width: 100%;
+    height: max-content;
+    margin: 70px 0 0 0;
+    display: flex;
+    justify-content: center;
+    font-family: 'Rasa', serif;
+}
+
+.reset, .clear-time {
+    position: absolute;
+    right: 20px;
+    background-color: #f3f6f7;
+    border: #3498DB solid 1px;
+    color: rgb(0, 0, 0);
+    width: 85px;
+    padding: 3px;
+    font-family: inherit;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.reset:hover, .clear-time:hover {
+    cursor: pointer;
+    background-color:#c1dff1;
+}
+
+.reset {
+    top: 20px;
+}
+
+.clear-time {
+    top: 50px;
+}
+
+main {
+    width: 600px;
+    min-width: 600px;
+}
+
+.score {
+    text-align: center;
+    font-size: 45px;
+    font-weight: 900;
+}
+
+.timer {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.question {
+    background-color: white;
+    padding: 20px 20px 50px 20px;
+    border-radius: 10px;
+}
+
+.question h3 {
+    text-align: center;
+    font-size: 25px;
+    margin: 20px;
+}
+
+.answers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.answers button {
+    font-family: inherit;
+    font-size: inherit;
+    border: none;
+    background-color: #3498DB;
+    color: white;
+    width: 400px;
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.answers button:hover {
+    background-color: #266e9f;
+    cursor: pointer;
+}
+
+a {
+    font-size: 20px;
+    display: block;
+    text-align: center;
+    margin: 3% 0;
+    text-decoration: none;
+    color: #3498DB;
+}
+
+a:hover {
+    text-decoration: underline;
+}

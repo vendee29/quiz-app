@@ -27,3 +27,15 @@ conn.connect((err) => {
 		console.log(`Connection established`);
 	}
 })
+
+// GET renders a static HTML, as a game page
+
+app.get('/game', (req, res) => {
+    res.sendFile(__dirname + '/public/main.html');
+})
+
+// GET renders a static HTML, as a manage questions page
+
+app.get('/questions', (req, res) => {
+    res.sendFile(__dirname + '/public/manage-questions.html');
+})

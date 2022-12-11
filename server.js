@@ -63,6 +63,16 @@ app.get('/api/questions', (req, res) => {
     .catch(err => console.log(err))
 })
 
+// POST adds a new question and its answers
+
+app.post('/api/questions', (req, res) => {
+    let { question, answers } = req.body;
+    
+    addQuestion(question, answers)
+    .then(result => res.status(200).json(result))
+    .catch(err => console.log(err))
+})
+
 // PORT LISTENING
 
 app.listen(port, () => {

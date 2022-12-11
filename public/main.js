@@ -35,6 +35,18 @@ fetchRandomQuestion()
 
 // Timer
 
+let timer = document.querySelector('.timer-count');
+let counter = 9;
+function timerHandler() {
+    timer.textContent = counter;
+    counter--;
+
+    if(counter == -1) {
+        changeScore(-1);
+        location.reload();
+    }
+}
+
 let myTimer = setInterval(timerHandler, 1000);
 
 let stopTimer = document.querySelector('.clear-time');

@@ -1,6 +1,12 @@
 'use strict';
 
+// render all questions
+
 fetchQuestions('/api/questions');
+
+// render form for adding a new question
+
+
 
 // HELPER FUNCTIONS
 
@@ -65,4 +71,49 @@ async function fetchQuestions(api) {
         }
     } catch (err) {
         console.log(err)}
+}
+
+// form
+
+function getAnswers(answers, correctAnswer) {
+    let finalAnswers = [];
+
+    for(let i = 0; i < answers.length; i++) {
+        let oneAnswer = {};
+        oneAnswer[`answer_${i + 1}`] = answers[i];
+       
+        if(i + 1 == correctAnswer) {
+            oneAnswer['is_correct'] = 1;
+        } else {
+            oneAnswer['is_correct'] = 0;
+        }
+        finalAnswers.push(oneAnswer);
+    }
+
+    return finalAnswers;
+}
+
+function clearForm() {
+    let questionInput = document.querySelector('#question');
+    let answer1Input = document.querySelector('#answer_1');
+    let answer2Input = document.querySelector('#answer_2');
+    let answer3Input = document.querySelector('#answer_3');
+    let answer4Input = document.querySelector('#answer_4');
+
+    questionInput.value = '';
+    answer1Input.value = '';
+    answer2Input.value = '';
+    answer3Input.value = '';
+    answer4Input.value = '';
+}
+
+async function fetchQuestion(values) {
+    let response = await fetch('/api/questions', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(values)
+    })
+    return await response.json();
 }

@@ -26,18 +26,31 @@ conn.connect((err) => {
 	} else {
 		console.log(`Connection established`);
 	}
-})
+});
 
 // GET renders a static HTML, as a game page
 
 app.get('/game', (req, res) => {
     res.sendFile(__dirname + '/public/main.html');
-})
+});
 
 // GET renders a static HTML, as a manage questions page
 
 app.get('/questions', (req, res) => {
     res.sendFile(__dirname + '/public/manage-questions.html');
+});
+
+// GET returns a random question with its answers
+
+app.get('/api/game', (req, res) => {
+
+    getRandomQuestion()
+    .then(result => {
+        let { question, answers } = result;
+        question.answers = answers
+        res.status(200).json(question)
+    })
+    .catch(err => console.log(err))
 })
 
 // PORT LISTENING

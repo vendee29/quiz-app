@@ -53,6 +53,16 @@ app.get('/api/game', (req, res) => {
     .catch(err => console.log(err))
 })
 
+// GET returns all the questions
+
+app.get('/api/questions', (req, res) => {
+    queryDb('SELECT * FROM questions')
+    .then(rows => {
+        res.status(200).json(rows);
+    })
+    .catch(err => console.log(err))
+})
+
 // PORT LISTENING
 
 app.listen(port, () => {
